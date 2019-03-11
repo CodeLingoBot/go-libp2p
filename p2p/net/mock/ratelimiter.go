@@ -42,7 +42,7 @@ func (r *RateLimiter) UpdateBandwidth(bandwidth float64) {
 	r.lastUpdate = time.Now()
 }
 
-//  Returns how long to wait before sending data with length 'dataSize' bytes
+//  Limit returns how long to wait before sending data with length 'dataSize' bytes
 func (r *RateLimiter) Limit(dataSize int) time.Duration {
 	r.lock.Lock()
 	defer r.lock.Unlock()
